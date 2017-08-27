@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
+
+import { YcombinatorService } from './services/ycombinator.service';
 
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routing';
@@ -15,8 +18,11 @@ import { TopstoriesComponent } from './components/topstories/topstories.componen
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
+    HttpModule
   ],
-  providers: [],
+  providers: [
+    YcombinatorService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
