@@ -22,6 +22,18 @@ export class YcombinatorService {
       .catch(this.handleError);
   }
 
+    getStoryDetail(storyId) {
+    return this.http.get(`${this.BASE_URL}/item/${storyId}.json`)
+      .map((res) => res.json())
+      .catch(this.handleError);
+  }
+
+   getAuthorDetail(authorId) {
+    return this.http.get(`${this.BASE_URL}/user/${authorId}.json`)
+      .map((res) => res.json())
+      .catch(this.handleError);
+  }
+
    getRandomStories(arr, n) {
     var result = new Array(n),
         len = arr.length,
