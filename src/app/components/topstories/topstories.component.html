@@ -1,3 +1,5 @@
-<p>
-  topstories works!
-</p>
+<h1>10 Top Stories</h1>
+<div *ngFor="let story of topstories">
+    <h3>{{ story.title }}</h3>
+    <p>{{ story.url }}</p>
+</div>
