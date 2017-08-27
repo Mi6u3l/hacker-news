@@ -20,9 +20,11 @@ export class TopstoriesComponent implements OnInit {
     title: String,
     url: String,
     timestamp: String,
+    score: Number,
     authorId: Number,
-    karmaScore: Number
+    authorKarmaScore: Number
   } > = [];
+
   constructor(private ycombinator: YcombinatorService) {}
 
   ngOnInit() {
@@ -44,8 +46,9 @@ export class TopstoriesComponent implements OnInit {
                 title: storyDetail['title'],
                 url: storyDetail['url'],
                 timestamp: storyDetail['time'],
+                score: storyDetail['score'],
                 authorId: storyDetail['by'],
-                karmaScore: resultAuthorDetail['karma']
+                authorKarmaScore: resultAuthorDetail['karma']
               })
             })
           });
