@@ -1,14 +1,7 @@
-import {
-  Component,
-  OnInit
-} from '@angular/core';
-import {
-  YcombinatorService
-} from '../../services/ycombinator.service';
-import {
-  Observable
-} from "rxjs/Observable";
-
+import { Component, OnInit } from '@angular/core';
+import { YcombinatorService } from '../../services/ycombinator.service';
+import { Observable } from "rxjs/Observable";
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-topstories',
@@ -16,6 +9,7 @@ import {
   styleUrls: ['./topstories.component.css']
 })
 export class TopstoriesComponent implements OnInit {
+  busy: Subscription;
   topstories: Array < {
     title: String,
     url: String,
@@ -28,7 +22,7 @@ export class TopstoriesComponent implements OnInit {
   constructor(private ycombinator: YcombinatorService) {}
 
   ngOnInit() {
-    this.ycombinator.getTopStories()
+    this.busy = this.ycombinator.getTopStories()
       .subscribe((data) => {
         //get 10 random story ids
         let topstoriesIds = this.ycombinator.getRandomStories(data, 10);
@@ -52,7 +46,6 @@ export class TopstoriesComponent implements OnInit {
               })
             })
           });
-          console.log(this.topstories);
         });
       });
   }
