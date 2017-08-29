@@ -13,7 +13,7 @@ export class TopstoriesComponent implements OnInit {
   topstories: Array < {
     title: String,
     url: String,
-    timestamp: String,
+    timestamp: Date,
     score: Number,
     authorId: Number,
     authorKarmaScore: Number
@@ -39,7 +39,7 @@ export class TopstoriesComponent implements OnInit {
               this.topstories.push({
                 title: storyDetail['title'],
                 url: storyDetail['url'],
-                timestamp: storyDetail['time'],
+                timestamp: new Date(storyDetail['time']*1000),
                 score: storyDetail['score'],
                 authorId: storyDetail['by'],
                 authorKarmaScore: resultAuthorDetail['karma']
