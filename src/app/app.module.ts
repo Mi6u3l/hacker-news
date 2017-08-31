@@ -11,12 +11,15 @@ import { routes } from './app.routing';
 
 import { AppComponent } from './app.component';
 import { TopstoriesComponent } from './components/topstories/topstories.component';
+import { OrderbyScoreComponent } from './pipes/orderby-score/orderby-score.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TopstoriesComponent
+    TopstoriesComponent,
+    OrderbyScoreComponent
   ],
   imports: [
     BrowserModule,

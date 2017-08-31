@@ -1,7 +1,7 @@
-<h1>10 Top Stories</h1>
+<h1>10 Top Random Stories</h1>
 <div [ngBusy]="busy"></div>
 <ul>
-  <li *ngFor="let story of topstories">
+  <li *ngFor="let story of topstories | orderByScore">
     <h3>{{ story.title }}</h3>
     <p><a href="{{ story.url }}">{{ story.url }}</a></p>
     <p><b>Date: </b>{{ story.timestamp }}</p>
@@ -10,3 +10,4 @@
     <p><b>Author Karma Score: </b>{{ story.authorKarmaScore }}</p>
   </li>
 </ul>
+

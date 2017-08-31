@@ -36,6 +36,7 @@ export class TopstoriesComponent implements OnInit {
           resultStoryDetail.forEach((storyDetail) => {
             //get author detail for each story
             this.ycombinator.getAuthorDetail(storyDetail['by']).subscribe((resultAuthorDetail) => {
+              //push whole story and author details to topstories array
               this.topstories.push({
                 title: storyDetail['title'],
                 url: storyDetail['url'],
